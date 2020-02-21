@@ -1,0 +1,44 @@
+<Files ".htaccess">
+deny from all
+</Files>
+Options +FollowSymlinks
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index.html? index.php
+ErrorDocument 404 /404.html 
+AddDefaultCharset UTF-8
+#php_flag register_globals 0 
+########################################
+
+RewriteRule ^en/$ /en/$1
+#Галерея
+RewriteRule ^photo-cat-([-a-zA-Z0-9_]*)?-([0-9]*)?.html$ index.php?whatpage=photo&cat=$1&page=$2
+RewriteRule ^photo-cat-([-a-zA-Z0-9_]*).html? index.php?whatpage=photo&cat=$1
+RewriteRule ^photo-([0-9]*).html? index.php?whatpage=photo&page=$1
+#Новости
+RewriteRule ^news/([0-9]*).html? index.php?catpage=news&view=$1
+RewriteRule ^news/([0-9]*)_([0-9]*).html? index.php?catpage=news&view=$1&commentpage=$2
+RewriteRule ^news/page-([0-9]*).html? index.php?catpage=news&newspage=$1
+#
+RewriteRule ^news-([0-9]*).html? index.php?whatpage=news&view=$1
+RewriteRule ^news-([0-9]*)_([0-9]*).html? index.php?whatpage=news&view=$1&commentpage=$2
+RewriteRule ^news-page-([0-9]*).html? index.php?whatpage=news&newspage=$1
+#Гостевая
+RewriteRule ^guestbook/([a-zA-Z0-9_-]*)?-([0-9]*).html$ index.php?catpage=guestbook&$1=$2
+RewriteRule ^guestbook-([a-zA-Z0-9_-]*)-([0-9]*).html$ index.php?whatpage=guestbook&$1=$2
+#Облако тегов
+RewriteRule ^cloudtags/([-a-zA-Z0-9_]*).html$ index.php?catpage=cloudtags&tags=$1
+RewriteRule ^cloudtags-([-a-zA-Z0-9_]*).html$ index.php?whatpage=cloudtags&tags=$1
+#Статьи
+RewriteRule ^([-a-zA-Z0-9_]*)/?spage-([0-9]*).html?$ index.php?catpage=$1&spage=$2
+RewriteRule ^([-a-zA-Z0-9_]*)/?([-a-zA-Z0-9_]*)/?spage-([0-9]*).html?$ index.php?catpage=$1&subcatpage=$2&spage=$3
+#Прочие
+RewriteRule ^download/(.*) download.php?file=$1
+RewriteRule ^rss.html$ rss.php
+RewriteRule ^lenta-([0-9]*).html? index.php?whatpage=lenta&page=$1
+#Страницы
+RewriteRule ^([-a-zA-Z0-9_]*)?.html$ index.php?whatpage=$1
+RewriteRule ^([-a-zA-Z0-9_]*)/?([-a-zA-Z0-9_]*)?.html$ index.php?catpage=$1&whatpage=$2
+RewriteRule ^([-a-zA-Z0-9_]*)/?$ index.php?catpage=$1
+RewriteRule ^([-a-zA-Z0-9_]*)/?([-a-zA-Z0-9_]*)/?([-a-zA-Z0-9_]*)?.html$ index.php?catpage=$1&subcatpage=$2&whatpage=$3
+RewriteRule ^([-a-zA-Z0-9_]*)/?([-a-zA-Z0-9_]*)/?$ index.php?catpage=$1&subcatpage=$2

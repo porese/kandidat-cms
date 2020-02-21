@@ -1,0 +1,1 @@
+<?php $x=2; $y= 3; $f=$x*$y; $types=array("jpg","jpeg","png","gif"); $multiupload="1" ;$info_pic="0"; $templatepp="facebook"; $gallerypath="pictures"; define("PICTURES",LOCALPATH.$gallerypath.'/');?>

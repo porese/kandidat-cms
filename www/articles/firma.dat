@@ -1,0 +1,15 @@
+<!-- Kan_title -->
+О фирме<!-- Kan_title -->
+<!-- Kan_content -->
+<br />О фирме ...<br /><br />Схема проезда (в файле /mycode/ymap.php откорректировать значение кода для своего хоста)<br />
+<div id="YMapsID" style="width: 100%; height: 600px;">&nbsp;</div><!-- Kan_content -->
+<!-- Kan_myinclude -->
+ymap<!-- Kan_myinclude -->
+<!-- Kan_description -->
+О фирме<!-- Kan_description -->
+<!-- Kan_keywords -->
+О фирме<!-- Kan_keywords -->
+<!-- Kan_templatepage -->
+<!-- Kan_templatepage -->
+<!-- Kan_comment -->
+<!-- Kan_comment -->

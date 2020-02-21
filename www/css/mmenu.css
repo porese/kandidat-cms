@@ -1,0 +1,51 @@
+.mmenudiv ul{
+width: 100%;
+float: left;
+margin: 0 0 1em 0;
+padding: 0;
+list-style: none;
+/*÷вет меню в покое*/
+background-color: #F5F5EC;
+font-size:100%;
+z-index:3000
+}
+.mmenudiv ul li{
+position: relative;
+padding: 1px 0px;
+}
+.mmenuselect {
+position: relative;
+padding: 1px 0px;
+/*÷вет текущего пункта меню*/
+background-color: #FFFFF9;
+}
+.mmenudiv ul li ul{
+position: absolute;
+width: 195px;
+top: 0;
+visibility: hidden;
+opacity: 0.8;
+filter:alpha(opacity=80);
+-moz-opacity: 0.8;
+-khtml-opacity: 0.8;
+}
+.mmenudiv ul li a{
+overflow: auto;
+display: block;
+padding: 4px 5px;
+text-decoration: none;
+color: #069;
+border-bottom: 1px solid #ccc; 
+border-right: 1px solid #ccc
+}
+.mmenudiv ul li a:visited{
+}
+.mmenudiv ul li a:hover{
+color: #FF0000;
+text-decoration: none;
+/*цвет меню при наведении*/
+background-color: #E8E8E8 /*url(/images/tab_bg.gif)*/
+}
+.mmenudiv .subfolderstyle{background: url(/images/arrow-list.gif) no-repeat center right}
+* html .mmenudiv ul li { float: left; height: 1%}
+* html .mmenudiv ul li a { height: 1%}

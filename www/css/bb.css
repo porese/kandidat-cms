@@ -1,0 +1,83 @@
+#bbcode {
+	height: 16px;
+	background-color: transparent;
+	padding: 0;
+	margin: 0 0 4px 0;
+}
+#bbcode li {
+	background-repeat: no-repeat;
+	cursor: pointer !important;
+	float: left;
+	line-height: 0;
+	list-style-type: none;
+	margin: 0 8px 0 0;
+}
+#bbcode span {
+	background: url(../images/b_bb.png);
+}
+#bbcode li img {
+	height: 16px;
+}
+#bt-font span {
+	background-position: 0 0;
+}
+#bt-size span {
+	background-position: -16px 0;
+}
+#bt-bold span {
+	background-position: -32px 0;
+}
+#bt-italic span {
+	background-position: -48px 0;
+}
+#bt-underline span {
+	background-position: -62px 0;
+}
+#bt-strike span {
+	background-position: -78px 0;
+}
+#bt-left span {
+	background-position: -95px 0;
+}
+#bt-center span {
+	background-position: -110px 0;
+}
+#bt-right span {
+	background-position: -126px 0;
+}
+#bt-list span {
+	background-position: -142px 0;
+}
+#bt-link span {
+	background-position: -158px 0;
+}
+#bt-email span {
+	background-position: -174px 0;
+}
+#bt-image span {
+	background-position: -190px 0;
+}
+#bt-video span {
+	background-position: -206px 0;
+}
+#bt-hide span {
+	background-position: -222px 0;
+}
+#bt-quote span {
+	background-position: -238px 0;
+}
+#bt-code span {
+	background-position: -254px 0;
+}
+#bt-color span {
+	background-position: -270px 0;
+}
+#bt-smile span {
+	background-position: -286px 0
+}
+#bt-listnum span {
+	background-position: -302px 0;
+}
+#bt-hr span {
+	background-position: -318px 0;
+}

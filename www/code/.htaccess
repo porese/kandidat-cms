@@ -1,0 +1,10 @@
+<Files captcha.php>
+  Order Allow,Deny
+  Allow from all
+</Files>
+<FilesMatch "\.(bmp|jpe?g|gif|png|ttf)">
+  Order Allow,Deny
+  Allow from all
+</FilesMatch>
+order deny,allow
+deny from all

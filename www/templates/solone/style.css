@@ -1,0 +1,292 @@
+body {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+	background: #caeefa url('images/background.gif') left top repeat-x; 
+	color: #666666;
+}
+
+p {
+	line-height: 110%;
+	padding: 0px;
+	margin: 12px 0px 12px 0px;
+}
+
+a, a:visited, a:active {
+	color: #28baef;
+}
+
+a:hover {
+	color: #0f4152;
+	text-decoration: none;
+}
+
+img {
+	padding: 0;
+	border: 0px;
+}
+
+img.centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+img.alignright {
+	padding: 4px;
+	margin: 0 0 2px 7px;
+	display: inline;
+}
+
+img.alignleft {
+	padding: 4px;
+	margin: 0 7px 2px 0;
+	display: inline;
+}
+
+#container {
+	width: 780px;	
+	margin: 0 auto;	
+}
+
+#header {
+	width: 780px;
+	height: 120px;
+	margin: 0px 0px 0px 0px;
+	padding: 25px 0px 0px 0px;
+	background: url('images/headerbg.gif') top left no-repeat;
+}
+
+#header h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	letter-spacing: -1px;
+	color: #dbf6ff;
+	font-size: 42px;
+	font-weight: bold;
+	line-height: 100%;
+	margin: 0px 0px 0px 5px;
+	padding: 0px;
+}
+
+#header h1 span {
+	color: #0f4152;
+}
+
+#header h1 a, #header h1 a:visited, #header h1 a:active, #header h1 a:hover {
+	color: #dbf6ff;
+	font-size: 52px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+#topmenu {
+	float: right;
+	padding: 0px 0px 0px 5px;
+	margin: 30px 15px 0px 0px;
+}
+
+#topmenu ul {
+	display: inline;
+	margin: 0px;
+	padding: 0px;
+}
+
+#topmenu li {
+	display: inline;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#topmenu li a, #topmenu li a:visited, #topmenu li a:active {
+	display: block;
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+	float: left;
+	margin: 0px 15px 0px 5px;
+	padding: 14px 3px 2px 3px;
+	border-bottom: 1px dotted #ffffff;
+
+}
+
+#topmenu li a:hover {
+	margin: 0px 15px 0px 5px;
+	padding: 14px 3px 2px 3px;
+	border-bottom: 1px dotted #0f4152;
+	color: #0f4152;
+}
+
+#contentcontainer {
+	clear: both;
+	float: left;
+	background: #ffffff url('images/contop.gif') top left no-repeat;
+	width: 740px;
+	margin: 0px 0px 0px 0px;	
+	padding: 5px 20px 5px 20px;
+}
+
+#content {
+	width: 512px;
+	float: left;
+	display: inline;
+	margin: 0px;
+	padding: 10px 7px 10px 1px;
+	
+}
+
+.post {
+	margin: 0px;	
+	padding: 0px;
+}
+
+.entry {
+	font-size: 14px;
+	margin: 0px;	
+	padding: 6px 0px 12px 0px;
+}
+
+#content h2 {
+	font-size: 18px;
+	text-decoration: none;
+	color: #FF7328;
+	border-bottom: 1px dotted #000000;
+	margin: 0px 0px 0px 0px;
+	padding: 15px 0px 2px 0px;
+	font-weight: bold;
+}
+
+#content h2 a, #content h2 a:visited, #content h2 a:active {
+	font-size: 16px;
+	text-decoration: none;
+	color: #0f4152;
+}
+
+#content h2 a:hover {
+	font-size: 16px;
+	color: #28baef; 
+	text-decoration: none;
+}
+
+.myinclude {
+	font-size: 12px;
+	text-align: right;
+	height: 15px;
+	color: #000000;
+	margin-top: 2px;
+	margin-bottom: 0px;
+	padding: 0px;
+}
+
+.meta {
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+
+.comments {
+	font-weight: bold;
+	width: 100%;
+	text-align: right;
+	padding: 0px;
+	margin: 0px;
+}
+
+blockquote {
+	margin: 15px 30px 15px 5px;
+	padding-left: 10px;
+	color: #5F5F5F;
+	border-left: 3px solid #e8e8e8;
+}
+
+h3 {
+	margin-top: 20px;
+	color: #0f4152;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#content .postpagesnav {
+	margin: 0px; 
+	padding: 0px; 
+}
+
+#content .postpagesnav .older {
+	width:50%;
+	float:left;
+}
+
+#content .postpagesnav .newer {
+	width: 50%; 
+	float: right; 
+	text-align:right;
+}
+
+#sidebar {
+	width: 220px;
+	margin: 0px;
+	padding: 12px 0px 10px 0px;
+	float: left;
+}
+
+#sidebar h2 {
+	color: #0f4152;
+	padding: 2px 2px 3px 15px;
+	margin: 0px;
+	font-size: 14px;
+	letter-spacing: 1px;
+	background: url('images/sidebarbg.gif');
+	font-weight: normal;
+}
+
+#sidebar a {
+	color: #0066FF;
+	text-decoration: none;
+}
+#sidebar ul {
+	list-style: none; 
+	margin: 0px;
+	padding: 17px 0px 0px 10px;
+}
+
+#sidebar li {
+	margin-left: 0px;
+	margin-bottom: 3px;
+}
+
+#sidebar ul li ul {
+	list-style: none; 
+	margin: 0px;
+	padding: 10px 0px 12px 15px;
+}
+
+#sidebar ul li ul li {	
+	background: url('images/link.gif') no-repeat left 4px;
+	margin-left: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+}
+
+#content2 {
+	padding: 15px 25px 10px 25px;
+	clear: both;
+	text-align: center;	
+	border-top: 1px solid #28baef;
+	margin-top: 0px;
+	display: block;
+}
+
+#content2 p {
+	color: #ACCDDB;
+}
+
+#content2 a, #content2 a:visited, #content2 a:active {
+	font-size: 10px;
+	color: #ACCDDB;
+	text-decoration: underline;
+}
+
+#content2 a:hover {
+	text-decoration: underline;
+}

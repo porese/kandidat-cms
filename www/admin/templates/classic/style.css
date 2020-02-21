@@ -1,0 +1,158 @@
+/* CSS Document */
+body {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #6B6B6B
+}
+img {border: none;}
+.line1{
+	border-bottom-color: #dcdcdc;
+	border-bottom-width: 1px;
+	border-bottom-style: solid
+}
+.line2{
+	border-bottom-color: #dcdcdc;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted
+}
+.line3{
+	border-bottom-color: #dcdcdc;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed
+}
+table thead{
+	font-weight: bold;
+	color: white;
+	background: black url(images/titlebar.png) repeat-x center left;
+}
+td.header  {
+	background: #E0EDD4 url('images/logo.jpg') left top no-repeat;
+	height: 120px;
+    color: #005300
+	font-weight: bold
+}
+td.area {
+font-family: Tahoma
+}
+.links { color: #fff; font: 10px Tahoma, Verdana; word-spacing: 0.05em }
+.links a { color: #fff }
+.links a:hover { color: #fff; text-decoration: underline }
+div.sub_text{
+		margin-top: -10px;
+		margin-left: 2px;
+		color: white;
+		font-family: Arial}
+h1 {
+	color: white;
+	border: 0px none;
+	padding: 0;
+	margin: 0;
+	font-weight: bold;
+	letter-spacing: -2px}
+h3 {
+	color: #000000;
+	font-size: 16px;
+	font-weight: bold
+}
+h2 {
+	color: #000000;
+	font-size: 12px;
+	font-weight: bold
+}
+td.main_cell {
+	height: 500px
+}
+TD {
+	font-size: 12px
+}
+
+.Nav {
+	font-size: 12px
+}
+
+A {
+	color: #A70303
+}
+
+A:hover {
+	color: #000000
+}
+.arrowlistmenu{
+	width: 180px; /*width of menu*/
+}
+.arrowlistmenu .headerbar{
+	font: bold 14px Arial;
+	color: white;
+	background: black url(images/titlebar.png) repeat-x center left;
+	margin-bottom: 10px; /*bottom spacing between header and rest of content*/
+	text-transform: uppercase;
+	padding: 4px 0 4px 18px; /*header text is indented 10px*/
+}
+.arrowlistmenu ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 8px; /*bottom spacing between each UL and rest of content*/
+}
+.arrowlistmenu ul li{
+	padding-bottom: 2px; /*bottom spacing between menu items*/
+}
+.arrowlistmenu ul li a{
+	color: #A70303;
+	background: url(images/arrowbullet.png) no-repeat center left; /*custom bullet list image*/
+	display: block;
+	padding: 2px 0;
+	padding-left: 19px; /*link text is indented 19px*/
+	text-decoration: none;
+	font-weight: bold;
+	border-bottom: 1px solid #dadada
+}
+.arrowlistmenu ul li a:visited{
+	color: #A70303
+}
+
+.arrowlistmenu ul li a:hover{ /*hover state CSS*/
+	color: #FF0000;
+	background-color: #F3F3F3;
+}
+
+.arrowlistmenu ul li a:active{ /*hover state CSS*/
+	color: #A70303;
+	background-color: #F5E5CE;
+}
+.code
+{
+	font-size:100%;
+	font-weight:normal;
+	display:block;
+	padding:1.5em 1em 1em 1em;
+	border-style:solid;
+	border-width:1px;
+	border-color:#C4C4C3;
+	margin:1em 0;
+	background-color:#F9F9F3;
+	font-family:sans-serif;
+}
+.select-and-input {
+                position: relative;
+}
+.select-and-input select {
+                position: absolute;
+                z-index: 0;
+                left: 0;
+                height: 24px;
+                width: 150px;
+}
+.select-and-input input {
+                position: absolute;
+                z-index: 1;
+                left: 0;
+                height: 20px;
+                padding:0;
+                width: 128px;
+}
+.cline1{
+}
+.cline0{
+		background: #efefef;
+}

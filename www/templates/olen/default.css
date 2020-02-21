@@ -1,0 +1,372 @@
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:   Brother_Bears
+Designer:j.aghili
+URL:   www.finalsense.com
+Date: August 2006
+--------------------------
+Mod it aka porese
+----------------------------------------------- */
+	body {
+		background : #ffffff url('images/Brother_Bear.jpg') no-repeat fixed top left;
+		color : #677899;
+		padding : 8;
+		margin : 8;
+		font-style:normal; font-variant:normal; font-weight:normal; font-size:12px; font-family:Verdana, Geneva, Arial, Helvetica, sans-serif
+	}
+
+	h1 {
+		margin-top : 40px;
+		font : bold 220% Georgia, serif;
+		text-align: center;
+		color: #ff9900;
+		padding-bottom: 30px;
+	}
+	#links {
+		line-height : 130%;
+		/*position : absolute;*/
+		/*top: 100px;*/
+		left: 10px;
+		width: 175px;
+		color : #677899;
+		float:left;
+	}
+
+	#content {
+		width : 566px;
+		padding-left:195px;
+	}
+	h2 {
+		font-weight : bold;
+		font-size : 100%;
+		color: #0099cc;
+		padding-bottom : 10px;
+	}
+	h3 {
+		font-weight : normal;
+		font-size : 80%;
+		margin : 1em 0;
+		padding : 0;
+	}
+	h4 {
+		margin:1em 0;
+		font:bold 110%/1.6em "Trebuchet MS",Trebuchet,Arial,Verdana,Sans-serif;
+		text-transform:uppercase;
+		letter-spacing:.2em;
+		color: #0099cc;
+	}
+	.postinfo {
+		font-size : 95%;
+		margin-bottom: 35px;
+	}
+
+	a:link {
+		color : #ff9900;
+	}
+	a:visited {
+		color : #ff9933;
+	}
+	a:active {
+		color : #ff9933;
+	}
+	a:hover {
+		color : #CC9900;
+	}
+	#content a:link {
+		color : #ff9933;
+	}
+	#content a:visited {
+		color : #678897;
+	}
+	#content a:active {
+		color : #CC9900;
+	}
+	#content a:hover {
+		color : #CC9900;
+	}
+	#links h2 {
+		font-weight : bold;
+		font-size : 100%;
+		margin : 0;
+		padding : 0;
+		border-bottom : 0px none;
+	}
+	#links ul {
+		margin : 0 0 2em 0;
+		padding : 0;
+		list-style : none;
+	}
+	#links li, #links dt, #links dd, #links dl {
+		margin : 0;
+		padding : 0;
+	}
+	#links .profile-link {
+		margin : 3px 0 2em 0;
+		padding : 0;
+	}
+	#links img {
+		margin : 3px 0;
+		border : 1px solid white;
+	}
+	#links a {
+		text-decoration: none;
+	}
+	.postinfo a {
+		text-decoration: none;
+	}
+	.category ul {
+		list-style : none;
+	}
+	.category li {
+		margin-bottom: .5em;
+		background: url(images/img12.gif) no-repeat left bottom;
+	}
+	.category a {
+		margin-left: 18px;
+	}
+   /* Posts
+----------------------------------------------- */
+@media all {
+  .date-header {
+    margin:1.5em 0 .5em;
+    }
+  .post {
+    margin:.5em 0 .5em;
+    border-bottom:1px dotted;
+    padding-bottom:1.5em;
+    }
+  }
+@media handheld {
+  .date-header {
+    padding:0 1.5em 0 1.5em;
+    }
+  .post {
+    padding:0 1.5em 0 1.5em;
+    }
+  }
+.post-title {
+  margin:.25em 0 0;
+  padding:0 0 4px;
+  font-size:140%;
+  font-weight:normal;
+  line-height:1.4em;
+  }
+.post-title a, .post-title a:visited, .post-title strong {
+  display:block;
+  text-decoration:none;
+  font-weight:normal;
+  }
+.post-title strong, .post-title a:hover {
+  }
+.post div {
+  margin:0 0 .75em;
+  line-height:1.6em;
+  }
+p.post-footer {
+  margin:-.25em 0 0;
+  }
+.post-footer em, .comment-link {
+  font:78%/1.4em "Trebuchet MS",Trebuchet,Arial,Verdana,Sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  }
+.post-footer em {
+  font-style:normal;
+  color:#999;
+  margin-right:.6em;
+  }
+.comment-link {
+  margin-left:.6em;
+  }
+.post img {
+  margin : 3px 0;
+  border : 0;
+  }
+.post blockquote {
+  margin:1em 20px;
+  }
+.post blockquote p {
+  margin:.75em 0;
+  }
+.subcat-title{
+	margin:0;
+	color: #0099cc;
+	margin-bottom: 30px;
+    border-top: 1px dotted #626262;
+    border-bottom: 1px dotted #626262;
+}
+.subcat-title a{
+	color: #0099cc;
+	margin-left: 18px;
+	font-weight : bold;
+	font-size : 110%;
+}
+.subcat-title ul{
+	margin : 0;
+	padding : 0;
+	list-style : none;
+}
+.subcat-title li{
+	background: url(images/img12.gif) no-repeat left bottom;
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+#lastnews {
+  font-size : 95%;
+}
+.news-date-time {
+  font:100%/1.1em "Trebuchet MS",Trebuchet,Arial,Verdana,Sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  }
+.guestbook {
+	/*padding: 20px 0px 20px 0px;*/
+	font-family: Tahoma, Georgia, "Times New Roman", Times, serif;
+}
+
+.guestbook .head{
+	display: block;
+	border-bottom: 1px dotted #626262;
+}
+
+.guestbook .entry{
+	padding: 20px 0px 20px 0px;
+}
+
+.guestbook .admin{
+	padding: 0;
+	background: #F6F6F6;
+	border-bottom: 1px solid #626262;
+}
+
+/* Comments
+----------------------------------------------- */
+.comment_head h3 {
+  font-size:120%;
+  }
+.comment {
+  margin:1em 0 1.5em;
+  line-height:1.6em;
+  border-bottom: 1px dotted #626262;
+  }
+.comment .comment-timestamp {
+  font:100%/1.1em "Trebuchet MS",Trebuchet,Arial,Verdana,Sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  }
+#navigation-comment {
+	text-align: center;
+	color:#858585;
+}
+
+#navigation-comment a {
+	text-decoration: none;
+}
+
+#navigation-head {
+	text-align: right;
+	color:#858585;
+}
+
+#navigation-head a {
+	text-decoration: none;
+}
+
+#navigation-news {
+	text-align: center;
+	color:#858585;
+}
+
+#navigation-news a {
+	text-decoration: none;
+}
+
+code {
+	font-size:100%;
+	font-weight:normal;
+	display:block;
+	padding:1.5em 1em 1em 1em;
+	border-style:solid;
+	border-width:1px;
+	border-color:#C4C4C3;
+	margin:1em 0;
+	font-family:sans-serif;
+}
+
+.legal {
+	padding: 0;
+	font-size:80%;
+}
+.legal a {
+	text-decoration: none;
+}
+#recently ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#recently li {
+	margin-bottom: .3em;
+	background: url(images/img12.gif) no-repeat left bottom;
+}
+#recently a {
+	margin-left: 18px;
+	text-decoration: none;
+	color: #0099cc;
+}
+#recently #mmenuselect {
+	font-weight: bold;
+	font-size: 1em;
+}
+#recently .rootnav ul {
+	visibility:hidden;
+	position: absolute;
+}
+
+#company_logo {
+	width:200px;
+	height:119px;
+	background:url(images/logo.gif) center right no-repeat;
+	left:2px;
+	top:-8px;
+	float:left;
+}
+.rss {
+	text-align:center;
+	width:30px;
+	height:30px;
+	position:absolute;
+	background:url(images/rss.png) center bottom no-repeat;
+}
+#footer {
+	margin: 0 20px;
+	border-bottom: 0;
+	clear: both;
+	font-size: 75%;
+	text-align:center;
+	width: 761px;
+}
+
+#footer a {
+	text-decoration: none;
+	color: #999;
+	clear: both;
+}
+
+#valid a {
+	padding: 0 20px;
+}
+
+.lrss {
+	background: url(images/img18.gif) no-repeat left center;
+}
+
+.xhtml {
+	background: url(images/img19.gif) no-repeat left center;
+}
+
+.css {
+	background: url(images/img20.gif) no-repeat left center;
+}

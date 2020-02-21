@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /articles/
+Disallow: /engine/
+Disallow: /media/
+Disallow: /templates/
+Disallow: /css/
+Disallow: /js/
+Disallow: /images/
+Disallow: /conf/
+Disallow: /lang/
+Disallow: /code/
+Disallow: /mycode/
