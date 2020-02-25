@@ -44,7 +44,7 @@
 
 		<h3>Облако меток</h3>
 		<ul>
-			<li><?php include("mycode/cloudtags.php"); ?></li>
+			<?php include("mycode/jqcloud.php"); ?>
 		</ul>
 
 		<h3>Новости</h3>
