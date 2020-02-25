@@ -20,9 +20,9 @@ if(isset($_SESSION['id'])){
 	if($_SESSION['id']!=session_id())$_SESSION['name'] = 'Гость';
 }
 
-@$whatpage = preg_replace('/[^a-z0-9-_]/iu','',$_REQUEST['whatpage']);
-@$catpage = preg_replace('/[^a-z0-9-_]/iu','',$_REQUEST['catpage']);
-@$subcatpage = preg_replace('/[^a-z0-9-_]/iu','',$_REQUEST['subcatpage']);
+$whatpage = isset($_REQUEST['whatpage'])?preg_replace('/[^a-z0-9-_]/iu','',$_REQUEST['whatpage']):'';
+$catpage = isset($_REQUEST['catpage'])?preg_replace('/[^a-z0-9-_]/iu','',$_REQUEST['catpage']):'';
+$subcatpage = isset($_REQUEST['subcatpage'])?preg_replace('/[^a-z0-9-_]/iu','',$_REQUEST['subcatpage']):'';
 foreach ($_GET as $var => $secvalue) { if((preg_match ('/<[^>]*script*\"?[^>]*>/iu', $secvalue)) || (preg_match ('/<[^>]*object*\"?[^>]*>/iu', $secvalue)) || (preg_match ('/<[^>]*iframe*\"?[^>]*>/iu', $secvalue)) || (preg_match ('/<[^>]*applet*\"?[^>]*>/iu', $secvalue)) || (preg_match ('/<[^>]*meta*\"?[^>]*>/iu', $secvalue)) || (preg_match ('/<[^>]*style*\"?[^>]*>/iu', $secvalue)) || (preg_match ('/<[^>]*form*\"?[^>]*>/iu', $secvalue)) || (preg_match ('/<[^>]*img*\"?[^>]*>/iu', $secvalue)) || (preg_match ('/<[^>]*onmouseover*\"?[^>]*>/iu', $secvalue)) || (preg_match ('/\([^>]*\"?[^)]*\)/iu', $secvalue)) || (preg_match ('/\"/iu', $secvalue))) { die('BAD YOUR CODE'); exit; }}
 foreach ($_POST as $secvalue) { if((preg_match ('/<[^>]*script *\"?[^>]*>/iu', $secvalue)) || (preg_match ('/<[^>]*style*\"?[^>]*>/iu', $secvalue))) { die('BAD YOUR CODE'); exit; }}
 include 'code/functions.php';

@@ -5,10 +5,10 @@ include $path.'/code/functions.php';
 
 $directory=LOCALPATH.'/media/file';//Это путь где хранятся файлы
 
-if(!$_GET['file']) die('Missing parameter!');
+if(empty($_GET['file'])) die('Missing parameter!');
 if($_GET['file']{0}=='.') die('Wrong file!');
 
-@$fname =$_GET['file'];
+$fname =$_GET['file'];
 $fname = preg_replace('/..\//i','',$fname);
 $fullPath=$directory.'/'.$fname;
 if(file_exists($fullPath)){
@@ -53,7 +53,7 @@ function is_bot(){
 
 function inc_count($fname){
 	$myFile=ENGINE.'logdb.php';
-	@$count="";
+	$count="";
 	$present=0;
 	if(is_readable($myFile)){
 		$log=file($myFile);
