@@ -4,7 +4,7 @@
 defined('_JEXEC') or die('Ай-яй-яй, сюда нельзя!');
 
 include_once(CONF .'newsconf.php');
-$news_Glink='/news'.($news_cat=='1'?'/':'-');
+$news_Glink='/news'.(isset($news_cat)?'/':'-');
 $viewnews = (isset($_GET['view']))?(int)$_GET['view']:-1;
 if((int)$newsperpage==0)$newsperpage=10;
 

@@ -9,7 +9,7 @@ if(file_exists(ENGINE.'cloudtagsdb.php')){
 		$sdata=explode('%',$cloud[0]);
 		for($i=1;$i<$sizeofcloud;$i++){
 			$data=explode('%%',$cloud[$i]);
-			$arrclouds[$data[0]]=$arrclouds[$data[0]]+1;
+			$arrclouds[$data[0]]=isset($arrclouds[$data[0]])?$arrclouds[$data[0]]:0+1;
 		}
 		$tags = '<ul>';
 		if(is_array($arrclouds))foreach($arrclouds as $key=>$val)$tags .= '<li><a href="'.cc_link('/cloudtags-'.translit($key).'.html').'" style="font-size: '.($sdata[1]+$val-1).'pt">'.$key.'</a></li>';

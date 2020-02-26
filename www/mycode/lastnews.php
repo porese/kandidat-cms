@@ -4,8 +4,8 @@
 defined('_JEXEC') or die('Ай-яй-яй, сюда нельзя!');
 
 include_once CONF .'newsconf.php';
-$news_Glink='/news'.($news_cat=='1'?'/':'-');
-$news_Gpage='/news'.($news_cat=='1'?'/':'.html');
+$news_Glink='/news'.(isset($news_cat)?'/':'-');
+$news_Gpage='/news'.(isset($news_cat)?'/':'.html');
 
 $lastnew="";
 $data=array_reverse(file($newsdbfilename));

@@ -44,7 +44,9 @@ if (!empty($_POST['action_comment'])){
 		@setcookie('flood_news',$newsflood, time()+$newsflood);
 	}
 }
-if(empty($yourname))$yourname=$_SESSION['name'];
+if(empty($yourname))$yourname=isset($_SESSION['name'])?$_SESSION['name']:__('Гость');
+if(empty($email))$email=isset($_SESSION['email'])?$_SESSION['email']:' ';
+if(empty($msg))$msg=isset($_SESSION['msg'])?$_SESSION['msg']:' ';
 if(file_exists($commentsfilename)){
 	$commentpage=(isset($_GET['commentpage']))?(int)$_GET['commentpage']:0;
 	$arrcomments=getcomments($commentsid, $commentsfilename,$moder_comments);
@@ -124,7 +126,7 @@ if($enablecomment==2){
 		<input type="submit" value="'.__('Добавить').'" />&nbsp;&nbsp;&nbsp;
 		<input type="reset" value="'.__('Сброс').'" />
 	</form>';
-	if($newsmoderator=='1') echo  __('Ваша запись будет направлена на модерацию, и в случае ее успешного прохождения, ее увидят все');
+	if(isset($newsmoderator)) echo  __('Ваша запись будет направлена на модерацию, и в случае ее успешного прохождения, ее увидят все');
 	echo '<br />'.$back;
 }
 if(!empty($error)){

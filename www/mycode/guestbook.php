@@ -1,4 +1,4 @@
-<?
+<?php
 //phpfile
 #Гостевая книга с каптчей и антифлудом, ответы администрации
 defined('_JEXEC') or die('Ай-яй-яй, сюда нельзя!');
@@ -11,7 +11,7 @@ $myFile=ENGINE.'guestbookdb.php';
 
 if($addrec){
 	$error = '';
-	$action=$_POST['action'];
+	$action=isset($_POST['action'])?$_POST['action']:'';
 	$_POST=stripinarr($_POST);
 
 	if(ip_is_baned())$error.='<li>'.__('Вы забанены на данном сайте').', '.__('Вам запрещено писать сообщения').'</li>';
@@ -85,7 +85,7 @@ if($addrec){
 	    }else $action='';
 	}
 
-	if(empty($name))$name=$_SESSION['name'];
+	if(empty($name))$name=isset($_SESSION['name'])?$_SESSION['name']:'';
 	if (empty($action)){
 ?>
 	<script type="text/javascript">
@@ -95,25 +95,25 @@ if($addrec){
 	function Checkit(theform) {
 
 		if(theform.name.value=="") {
-			error+="<?=__('Вы не ввели имя');?>\n";
+			error+="<?php=__('Вы не ввели имя');?>\n";
 		}
 
 		if(theform.msg.value=="") {
-			error+="<?=__('Вы не ввели сообщение');?>\n";
+			error+="<?php=__('Вы не ввели сообщение');?>\n";
 		}
 
 		if(theform.vcaptcha.value=="") {
-			error+="<?=__('Вы не ввели значение каптчи');?>\n";
+			error+="<?php=__('Вы не ввели значение каптчи');?>\n";
 		}
 
 		if(theform.email.value!="") {
 			if(!e_regex.test(theform.email.value)) {
-				error+="<?=__('Неправильный адрес электронной почты');?>\n";
+				error+="<?php=__('Неправильный адрес электронной почты');?>\n";
 			}
 		}
 
 		if(error) {
-			alert('<?=__('Произошли следующие ошибки');?>:\n\n' + error);
+			alert('<?php=__('Произошли следующие ошибки');?>:\n\n' + error);
 			error="";
 			return false;
 		} else {
@@ -122,46 +122,46 @@ if($addrec){
 	}
 	</script>
 
-	<script type="text/javascript" src="<?echo $prefflp;?>/js/bb.js" charset="utf-8"></script>
-	<p><?=__('Слово не воробей - вылетит не поймаешь.');?><br /><?=__('Мы призываем Вас не использовать в сообщениях нецензурную лексику!');?></p>
+	<script type="text/javascript" src="<?php echo $prefflp;?>/js/bb.js" charset="utf-8"></script>
+	<p><?php __('Слово не воробей - вылетит не поймаешь.');?><br /><?php __('Мы призываем Вас не использовать в сообщениях нецензурную лексику!');?></p>
 	<form action="#" method="post"  enctype="multipart/form-data" name="formular" onsubmit="return Checkit(this);">
 		<input type="hidden" name="action" value="post" />
-	 	<h3><?=__('Добавление сообщения');?></h3><br />
+	 	<h3><?php __('Добавление сообщения');?></h3><br />
 	 	<div class="inpfrmname">Имя:
 		</div>
-	    <div class="inpfrmval"><input type="text" name="name" maxlength="52" size="25" value="<? echo @$name; ?>" /><span class="error_message">*</span>
+	    <div class="inpfrmval"><input type="text" name="name" maxlength="52" size="25" value="<?php echo @$name; ?>" /><span class="error_message">*</span>
 		</div>
 	    <div class="inpfrmend"></div>
 	    <div class="inpfrmname">Город:
 		</div>
-	    <div class="inpfrmval"><input type="text" name="city" maxlength="32" size="25" value="<? echo @$city; ?>" /><br />
+	    <div class="inpfrmval"><input type="text" name="city" maxlength="32" size="25" value="<?php echo @$city; ?>" /><br />
 		</div>
 	    <div class="inpfrmend"></div>
 	    <div class="inpfrmname">E-mail:
 		</div>
-	    <div class="inpfrmval"><input type="text" name="email" size="25" maxlength="32" value="<? echo @$email; ?>" /> (<?=__('публикуется');?>)<br />
+	    <div class="inpfrmval"><input type="text" name="email" size="25" maxlength="32" value="<?php echo @$email; ?>" /> (<?=__('публикуется');?>)<br />
 		</div>
 	    <div class="inpfrmend"></div>
 	    <div class="inpfrmname">URL:
 		</div>
-	    <div class="inpfrmval"><input type="text"  name="url" size="40" maxlength="36" value="<? echo @$url; ?>" /><br />
+	    <div class="inpfrmval"><input type="text"  name="url" size="40" maxlength="36" value="<?php echo @$url; ?>" /><br />
 		</div>
 	    <div class="inpfrmend"></div>
 		<div class="inpfrmmessage">
 	 	<label for="msg">Сообщение:<span class="error_message">*</span></label>
 		<fieldset>
-			<script type="text/javascript">edToolbar('msg','<? echo $prefflp;?>');</script>
-			<textarea cols="55" rows="10" name="msg" id="msg" style="width:98%" ><? echo @$msg; ?></textarea>
+			<script type="text/javascript">edToolbar('msg','<?php echo $prefflp;?>');</script>
+			<textarea cols="55" rows="10" name="msg" id="msg" style="width:98%" ><?php echo @$msg; ?></textarea>
 		</fieldset>
 		</div>
-			<?=put_captcha();?>
+			<?php echo put_captcha();?>
 		<input type="hidden" name="submit" value="true" />
 	   	<input type="submit" value="Добавить" />&nbsp;&nbsp;&nbsp;
 	   	<input type="reset" value="Сброс" />
 	</form>
-	<? if($gbmoderator=="1") echo "<br />".__('Ваша запись будет направлена на модерацию, и в случае ее успешного прохождения, ее увидят все'); ?>
-	<p class="back"><a href='javascript:history.back(1)'><?=__('Вернуться назад');?></a></p>
-<?
+	<?php if($gbmoderator=="1") echo "<br />".__('Ваша запись будет направлена на модерацию, и в случае ее успешного прохождения, ее увидят все'); ?>
+	<p class="back"><a href='javascript:history.back(1)'><?php __('Вернуться назад');?></a></p>
+<?php
 	    if (!empty($error)){
 	        echo "<p class=\"error_header\"><font color=green>".__('Во время добавления записи произошли следующие ошибки').": </font></p>\n";
 	        echo "<ul class=\"error_message\">\n";
@@ -180,7 +180,7 @@ if($addrec){
 		for ($i = $start; $i < min($count,$start+$pnumber); $i++){
 			$data=unserialize($gbs[$i]);
 			if ($data=="") {continue;}
-    		$moderator = (int)$data['moderator'];
+    		$moderator = isset($data['moderator'])?(int)$data['moderator']:0;
 	    	if(($moderator!==1)&&($gbmoderator=="1")) {continue;}
 	 	  	$date = $data['time'];
 		    $date = date("<b>d-m-Y</b> H:i",$date);
@@ -192,7 +192,7 @@ if($addrec){
 	    	$url = $data['url'];
 			$url = !empty($url)?"www: <a href=\"".$url."\">".$url."</a>":"";
 			$msg = $data['mess'];
-	    	$answer = $data['answer'];
+	    	$answer = isset($data['answer'])?$data['answer']:'';
 			$answer = isset($answer)?"<b>Аdmin:</b>&nbsp;".$answer:"";
 			$p=$i+$start;$p++;
 	    	echo '<div class="head">

@@ -3,10 +3,10 @@
 #Фотогаллерея
 defined('_JEXEC') or die('Ай-яй-яй, сюда нельзя!');
 include_once CONF.'photoconf.php';
-$mode= $_GET['mode'];
+$mode= isset($_GET['mode'])?$_GET['mode']:'';
 $page= isset($_GET['page'])?(int)$_GET['page']:1;
-$image= $_GET['image'];
-$img=$_GET['img'];
+$image= isset($_GET['image'])?$_GET['image']:'';
+$img= isset($_GET['img'])?$_GET['img']:'';
 $cat=(isset ($_GET['cat']))? $_GET['cat'] : '';
 if($cat =='') { $razdel=''; $link=$prefflp.'/'.$gallerypath.'/';} else { $razdel='-cat-'.$cat; $link=$prefflp.'/'.$gallerypath.'/'.$cat.'/';}
 

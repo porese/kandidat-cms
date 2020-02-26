@@ -7,7 +7,7 @@
 <meta name="description" content="<?php echo $metadescription;?>" />
 <title><?php echo $sitetitle;?> - <?php echo $sitename;?></title>
 <style type="text/css">
-	@import url(<?php echo $prefflp; ?>/templates/<? echo $template;?>/style.css);
+	@import url(<?php echo $prefflp; ?>/templates/<?php echo $template;?>/style.css);
 </style>
 
 </head>
@@ -44,26 +44,26 @@
 
 		<h3>Облако меток</h3>
 		<ul>
-			<?php include("mycode/jqcloud.php"); ?>
+			<?php include("mycode/cloudtags.php"); ?>
 		</ul>
 
 		<h3>Новости</h3>
 		<ul id="lastnews">
-			<? include $localpath .'/mycode/lastnews.php'; ?>
+			<?php include $localpath .'/mycode/lastnews.php'; ?>
 		</ul>
 
 		<h3>Случайное фото</h3>
 		<ul>
-			<li><? include("mycode/photorotate.php"); ?></li>
+			<li><?php include("mycode/photorotate.php"); ?></li>
 		</ul>
 
 		<h3>Афоризм</h3>
 		<ul>
-			<li><? include("mycode/aforizm.php"); ?></li>
+			<li><?php include("mycode/aforizm.php"); ?></li>
 		</ul>
 
 		<ul>
-			<li><? include("engine/counter.php"); ?></li>
+			<li><?php include("engine/counter.php"); ?></li>
 		</ul>
 
 	</div><!--menu-page-->
@@ -71,7 +71,7 @@
 
 	<div id="content">
 		<h2><?php echo $sitetitle;?></h2>
-		<?echo $contentcenter;?>
+		<?php echo $contentcenter;?>
   </div><!--content-->
 </div><!--wrapper-content-->
 

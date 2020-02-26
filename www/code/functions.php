@@ -421,7 +421,7 @@ function loadsimple ($filename){
 //Проверка забаненного ip
 function ip_is_baned($in_ip=null){
 	$filename=ENGINE.'banipdb.php';
-	$in_ip=isset($in_ip)?$in_ip:$_SERVER[REMOTE_ADDR];
+	@$in_ip=isset($in_ip)?$in_ip:$_SERVER[REMOTE_ADDR];//$_SERVER["HTTP_X_REAL_IP"];  //$_SERVER[REMOTE_ADDR];
 	if(file_exists($filename)){
 		$data=loaddata($filename);
 		if(is_array($data))

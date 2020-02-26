@@ -38,7 +38,7 @@ $index_arr=0;
 $countallstati = count($arfiles);
 $j = (($_REQUEST['page']-1)*$sperpage);
 
-while (list($key, $val) = each($arfiles)) {
+foreach($arfiles as $key=>$val){
 	if(($index_arr>=$j) && ($index_arr<$j+$sperpage)){
 	if(file_exists(ARTICLES.$key)){
 		$data = file_get_contents(ARTICLES.$key);

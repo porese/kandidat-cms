@@ -11,7 +11,7 @@ if($siteoff) {
 }
 
 $captcha = false;
-if(isset($_SESSION['vcaptcha'])){
+if(isset($_SESSION['vcaptcha'])&&isset($_POST['vcaptcha'])){
 	if($_SESSION['vcaptcha']===$_POST['vcaptcha'])$captcha = true;
 	$_SESSION['vcaptcha']='';
 }
