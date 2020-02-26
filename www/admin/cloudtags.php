@@ -9,14 +9,11 @@ $filename=ENGINE.'cloudtagsdb.php';
 if (isset($_REQUEST['settings'])) {
 	$x=(int)$_REQUEST['x'];
 	$y=(int)$_REQUEST['y'];
+	$color=$_REQUEST['color'];
+	$outlinecolor=$_REQUEST['outlinecolor'];
 	$pxsize=(int)$_REQUEST['pxsize'];
-	$bgcolor=trim($_REQUEST['bgcolor']);
-	$color=trim($_REQUEST['color']);
-	$color2=trim($_REQUEST['color2']);
-	$colorh=trim($_REQUEST['colorh']);
-	$speed=(int)$_REQUEST['speed'];
 
-	$sdata='%'.$pxsize.'%'.$x.'%'.$y.'%'.$bgcolor.'%'.$color.'%'.$speed.'%'.$color2.'%'.$colorh.'%';
+	$sdata='%'.$pxsize.'%'.$x.'%'.$y.'%'.$color.'%'.$outlinecolor.'%';
 
 	if((int)$_REQUEST['maketags']==1){
 		$cloud[0]=$sdata;
@@ -59,27 +56,24 @@ if (isset($_REQUEST['settings'])) {
 			}
 		}
 
-		savearray($filename, $cloud, $rez='w+');
+		file_put_contents($filename, serialize($cloud));
 	}else{
-		$cloud=file($filename);
+		$cloud = unserialize(file_get_contents($filename));
 		$cloud[0]=$sdata;
-		savearray($filename, $cloud, $rez='w+');
+		file_put_contents($filename, serialize($cloud));
 	}
 
 }else{
 	if(file_exists(ENGINE.'cloudtagsdb.php')){
-		$scloud=file(ENGINE.'cloudtagsdb.php');
+		$scloud = unserialize(file_get_contents($filename));
 		$sizeofcloud=sizeof($scloud);
 		if($sizeofcloud>0){
 			$sdata=explode('%',$scloud[0]);
 			$pxsize=$sdata[1];
 			$x=$sdata[2];
 			$y=$sdata[3];
-			$bgcolor=$sdata[4];
-			$color=$sdata[5];
-			$speed=$sdata[6];
-			$color2=$sdata[7];
-			$colorh=$sdata[8];
+			$color=$sdata[4];
+			$outlinecolor=$sdata[5];
 		}
 	}
 }
@@ -94,20 +88,11 @@ $contentcenter .=<<<EOT
 <label title="Ширина блока подбирается исходя из шаблона ">Ширина блока*<br />
 <input class="settings" type="text" name="x" id="title" value="$x"></label>
 <br /><br />
-<label title="Цвет фона (белый ffffff) ">Цвет фона*<br />
-<input class="settings" type="text" name="bgcolor" id="title" value="$bgcolor"></label>
+<label title="Цвет шрифта (красный ff0000) ">Цвет текста*
+<input class="settings" type="color" name="color" id="title" value="$color">$color</label>
 <br /><br />
-<label title="Цвет шрифта (серый 333333) ">Цвет текста*<br />
-<input class="settings" type="text" name="color" id="title" value="$color"></label>
-<br /><br />
-<label title="Цвет шрифта (серый 333333) ">Цвет текста 2*<br />
-<input class="settings" type="text" name="color2" id="title" value="$color2"></label>
-<br /><br />
-<label title="Цвет шрифта (серый 333333) ">Цвет текста "hover"*<br />
-<input class="settings" type="text" name="colorh" id="title" value="$colorh"></label>
-<br /><br />
-<label title="Скорость движения элементов в облаке (оптимально 115 ) ">Скорость движения элементов*<br />
-<input class="settings" type="text" name="speed" id="title" value="$speed"></label>
+<label title="Цвет выделения (серый 333333, ff00ff) ">Цвет выделения*
+<input class="settings" type="color" name="outlinecolor" id="title" value="$outlinecolor">$outlinecolor</label>
 <br /><br />
 <label><input class="settings" type="checkbox" name="maketags" id="title" value="1" />Построить теги. Выполнять после добавления или удаления страниц и новостей с тегами.</label><br />
 <br /><br />
@@ -117,7 +102,7 @@ EOT;
 
 $contentcenter .='<br /><br /><br /><center><h3>Образец</h3><br />';
 if(file_exists(ENGINE.'cloudtagsdb.php')){
-	$cloud=file(ENGINE.'cloudtagsdb.php');
+	$cloud=unserialize(file_get_contents($filename));
 	$sizeofcloud=sizeof($cloud);
 	if($sizeofcloud>0){
 		$sdata=explode('%',$cloud[0]);
@@ -125,28 +110,36 @@ if(file_exists(ENGINE.'cloudtagsdb.php')){
 			$data=explode('%%',$cloud[$i]);
 			$arrclouds[$data[0]]=$arrclouds[$data[0]]+1;
 		}
-		$tags = '<tags>';
-		if(is_array($arrclouds))foreach($arrclouds as $key=>$val)$tags .= '<a href="'.cc_link('/cloudtags-'.translit($key).'.html').'" style="font-size: '.($sdata[1]+$val-1).'pt">'.$key.'</a>';
-		$tags .= '</tags>';
+		$tags = '<ul>';
+		if(is_array($arrclouds))foreach($arrclouds as $key=>$val)$tags .= '<li><a href="'.cc_link('/cloudtags-'.translit($key).'.html').'" style="font-size: '.($sdata[1]+$val-1).'pt">'.$key.'</a></li>';
+		$tags .= '</ul>';
 	}
 }
-$contentcenter .='<script type="text/javascript" src="'.$prefflp.'/js/swfobject.js"  charset="utf8"></script>
-<div id="tags">
-<p>'.str_replace('><','><br /><',$tags).'</p>
-<p>Облако тегов требует для просмотра <noindex><a href="http://www.adobe.com/go/getflashplayer" target="_blank" rel="nofollow">Flash Player 9</a></noindex> или выше.</p>
-<script type="text/javascript">
-	var rnumber = Math.floor(Math.random()*9999999);
-	var widget_so = new SWFObject("'.$prefflp.'/js/tagcloud.swf?r="+rnumber, "tagcloudflash", "'.$x.'", "'.$y.'", "9", "#'.$bgcolor.'");
-	widget_so.addParam("allowScriptAccess", "always");
-	widget_so.addParam("wmode", "transparent");
-	widget_so.addVariable("tcolor", "0x'.$color.'");
-	widget_so.addVariable("tcolor2", "0x'.$color2.'");
-	widget_so.addVariable("hicolor", "0x'.$colorh.'");
-	widget_so.addVariable("tspeed", "'.$speed.'");
-	widget_so.addVariable("distr", "false");
-	widget_so.addVariable("mode", "tags");
-	widget_so.addVariable("tagcloud", "'.urlencode($tags).'");
-	widget_so.write("tags");</script>
+
+$contentcenter .='<script src="'.$prefflp.'/js/jquery.tagcanvas.min.js" type="text/javascript"></script>
+<div id="myCanvasContainer">
+<canvas width="'.$x.'" height="'.$y.'" id=\'myCanvas\'>
+<p>Anything in here will be replaced on browsers that support the canvas element</p>
+</canvas>
 </div>
-</center>';
+<div id="tags">
+	'.$tags.'
+</div>
+<script type="text/javascript">
+  window.onload = function() {
+    try {
+      TagCanvas.Start("myCanvas","tags",{
+            textColour: "'.$color.'",
+            outlineColour: "'.$outlinecolor.'",
+            reverse: true,
+            depth: 0.8,
+            maxSpeed: 0.05
+          });
+    } catch(e) {
+      // something went wrong, hide the canvas container
+      document.getElementById(\'myCanvasContainer\').style.display = \'none\';
+    }
+  };
+</script>';
+
 include $localpath.'/admin/admintemplate.php';

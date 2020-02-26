@@ -7,7 +7,8 @@ $news_Glink='/news'.($news_cat=='1'?'/':'-');
 if(isset($_GET['tags'])){
 	$thetags=trim($_GET['tags']);
 	if(file_exists(ENGINE.'cloudtagsdb.php')){
-		$cloud=file(ENGINE.'cloudtagsdb.php');
+		//$cloud=file(ENGINE.'cloudtagsdb.php');
+		$cloud=unserialize(file_get_contents(ENGINE.'cloudtagsdb.php'));
 		$sizeofcloud=sizeof($cloud);
 		if($sizeofcloud>0){
 			$sdata=explode('%',$cloud[0]);

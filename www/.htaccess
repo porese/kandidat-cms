@@ -16,13 +16,16 @@ RewriteRule ^photo-cat-([-a-zA-Z0-9_]*)?-([0-9]*)?.html$ index.php?whatpage=phot
 RewriteRule ^photo-cat-([-a-zA-Z0-9_]*).html? index.php?whatpage=photo&cat=$1
 RewriteRule ^photo-([0-9]*).html? index.php?whatpage=photo&page=$1
 #Новости
-RewriteRule ^news/([0-9]*).html? index.php?catpage=news&view=$1
-RewriteRule ^news/([0-9]*)_([0-9]*).html? index.php?catpage=news&view=$1&commentpage=$2
-RewriteRule ^news/page-([0-9]*).html? index.php?catpage=news&newspage=$1
+#RewriteRule ^news/([0-9]*).html? index.php?catpage=news&view=$1
+#RewriteRule ^news/([0-9]*)_([0-9]*).html? index.php?catpage=news&view=$1&commentpage=$2
+#RewriteRule ^news/page-([0-9]*).html? index.php?catpage=news&newspage=$1
 #
-RewriteRule ^news-([0-9]*).html? index.php?whatpage=news&view=$1
-RewriteRule ^news-([0-9]*)_([0-9]*).html? index.php?whatpage=news&view=$1&commentpage=$2
-RewriteRule ^news-page-([0-9]*).html? index.php?whatpage=news&newspage=$1
+RewriteRule ^news-([0-9]*).html? index.php?catpage=news&view=$1
+RewriteRule ^news-([0-9]*)_([0-9]*).html? index.php?catpage=news&view=$1&commentpage=$2
+RewriteRule ^news-page-([0-9]*).html? index.php?catpage=news&newspage=$1
+#RewriteRule ^news-([0-9]*).html? index.php?whatpage=news&view=$1
+#RewriteRule ^news-([0-9]*)_([0-9]*).html? index.php?whatpage=news&view=$1&commentpage=$2
+#RewriteRule ^news-page-([0-9]*).html? index.php?whatpage=news&newspage=$1
 #Гостевая
 RewriteRule ^guestbook/([a-zA-Z0-9_-]*)?-([0-9]*).html$ index.php?catpage=guestbook&$1=$2
 RewriteRule ^guestbook-([a-zA-Z0-9_-]*)-([0-9]*).html$ index.php?whatpage=guestbook&$1=$2
