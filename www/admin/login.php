@@ -82,7 +82,7 @@ if((isset($_POST['logout'])) or (isset($_GET['logout']))){
 	<table height=100% width=100%>
 		<tr><td align=center valign=center>
 		<table ><tr><td id=enter><img style="PADDING-BOTTOM: 0.6em; PADDING-LEFT: 0em; PADDING-RIGHT: 0.6em; PADDING-TOP: 0.6em" alt="" align=left src="../media/admin_b.png" /><h3>Авторизация</h3>
-			<?echo $info."<br /><br />";?>
+			<?php echo $info."<br /><br />";?>
 			<form action="login.php" method="post">
 				Логин:&nbsp;&nbsp; <input name="name" type="text" /><br />
 				Пароль: <input name="pass" type="password" /><br/ ><br />

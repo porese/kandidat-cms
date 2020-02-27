@@ -6,11 +6,11 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title><?php echo $sitetitle;?></title>
 		<meta name="description" content="Kan-Sdudio" />
-		<link rel="stylesheet" type="text/css" href="templates/<? echo $admintemplate;?>/st_gargoyles_v4.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="templates/<?php echo $admintemplate;?>/st_gargoyles_v4.css" media="screen">
 		<style type="text/css"><!--
-			@import "templates/<? echo $admintemplate;?>/st_gargoyles.css";
-			@import "templates/<? echo $admintemplate;?>/st_gargoyles_theme.css";
-			@import "<? echo $prefflp;?>/css/qTip.css";
+			@import "templates/<?php echo $admintemplate;?>/st_gargoyles.css";
+			@import "templates/<?php echo $admintemplate;?>/st_gargoyles_theme.css";
+			@import "<?php echo $prefflp;?>/css/qTip.css";
 		--></style>
 		<script type="text/javascript" src="/etribou/layouts/javascript/ruthsarian_utilities.js"></script>
 		<script type="text/javascript">
@@ -66,7 +66,7 @@
 								></ul>
 								<hr class="hide">
 							</div>
-							<h3 class="pageTitle"><?=$sitetitle;?></h3>
+							<h3 class="pageTitle"><?php echo $sitetitle;?></h3>
 							<div id="contentColumnContainer">
 								<div id="innerContent">
 									<div class="inside">
@@ -86,8 +86,8 @@
 							<div id="cornerLogo">
 								<div class="placeHolder">
 									<p>
-										<img src="<?php echo $prefflp;?>/admin/templates/<? echo $admintemplate;?>/logo.gif">
-										User: <?=getuser();?>
+										<img src="<?php echo $prefflp;?>/admin/templates/<?php echo $admintemplate;?>/logo.gif">
+										User: <?php getuser();?>
 									</p>
 								</div>
 							</div>
@@ -200,10 +200,10 @@
 					<div id="footer">
 						<p>
 							<div style="float:left">
-								&copy; Powered by : <a href="http://www.Kan-Studio.ru">Kandidat CMS <? echo VERSION;?></a>
+								&copy; Powered by : <a href="http://www.Kan-Studio.ru">Kandidat CMS <?php echo VERSION;?></a>
 							</div>
 						   	<div style="float:right">
-								<? echo $choisetemplate;?>
+								<?php echo $choisetemplate;?>
 							</div>
 						</p>
 						<hr class="hide">
