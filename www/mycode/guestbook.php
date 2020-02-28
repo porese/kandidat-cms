@@ -179,6 +179,7 @@ if($addrec){
 		if ($start <= 0){$start = 0;$count=min($count,$pnumber);}
 		for ($i = $start; $i < min($count,$start+$pnumber); $i++){
 			$data=unserialize($gbs[$i]);
+			print_r($data);
 			if ($data=="") {continue;}
     		$moderator = isset($data['moderator'])?(int)$data['moderator']:0;
 	    	if(($moderator!==1)&&($gbmoderator=="1")) {continue;}

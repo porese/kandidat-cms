@@ -137,7 +137,7 @@ function makepermalink($thisurl) {
 }
 function articlesparam($findwhat, $data) {
 	if(preg_match('/(title)|(content)|(myinclud)|(description)|(keywords)|(templatepage)|(comment)|(pubdate)|(code)|(permission)|(tags)|(order)/',$findwhat)){
-		$text = explode('<!-- Kan_'.trim($findwhat).' -->',$data);
+		@$text = explode('<!-- Kan_'.trim($findwhat).' -->',$data);
     	$text =  isset($text[1])?trim($text[1]):'';
 	}
 	return $text;
