@@ -1,13 +1,11 @@
 <?php
 //phpfile
-#Облако тегов - результаты. Флеш модуль в cloudtags.php.
 defined('_JEXEC') or die('Ай-яй-яй, сюда нельзя!');
 include_once(CONF .'newsconf.php');
-$news_Glink='/news'.($news_cat=='1'?'/':'-');
+$news_Glink='/news'.(empty($news_cat)?'-':'/');
 if(isset($_GET['tags'])){
 	$thetags=trim($_GET['tags']);
 	if(file_exists(ENGINE.'cloudtagsdb.php')){
-		//$cloud=file(ENGINE.'cloudtagsdb.php');
 		$cloud=unserialize(file_get_contents(ENGINE.'cloudtagsdb.php'));
 		$sizeofcloud=sizeof($cloud);
 		if($sizeofcloud>0){
@@ -40,7 +38,6 @@ if(isset($_GET['tags'])){
 						echo '<div class="title"><h2>'.art_catalog($data[2],'->').'<a href="'.cc_link($aname).'" name="'.str_replace('/','--',$aname).'">'.$hs_text.'</a></h2></div><div class="entry">'.$s_text.'</div><br />';
 						echo '<p class="links">'.$pubdata_text.'<a href="'.cc_link('/'.$aname.'#comment_begin').'">'.__('Комментарии').': '.getcountcomments(0,ARTICLES.$data[2].'.dat.comment',$moder_comments).'</a> | <a href="'.cc_link('/'.$aname).'" class="comments">'.__('Читать полностью').'</a></p><br /><br />';
 					}
-				$arrclouds[$data[0]]=$arrclouds[$data[0]]+1;
 				}
 			}
 		}

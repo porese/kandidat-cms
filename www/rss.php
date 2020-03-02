@@ -1,7 +1,7 @@
 <?php
+include 'conf/config.php';
 include 'code/functions.php';
-include CONF.'config.php';
-if($rss_сontent==0)$rss_сontent=3;
+if(empty($rss_сontent))$rss_сontent=3;
 $sitehost="http://".$_SERVER['HTTP_HOST'];
 function compare_arr($ar1,$ar2){
 	$val1=$ar1['datatime'];
@@ -95,11 +95,11 @@ foreach($return as $line)
 {
          $output .="<item>
                         <title><![CDATA[".strip_tags($line['head'])."]]></title>
-                        <link>".htmlentities(strip_tags($line['link']),ENT_COMPAT,cp1251)."</link>
+                        <link>".htmlentities(strip_tags($line['link']),ENT_COMPAT,"cp1251")."</link>
                         <description><![CDATA[".strip_tags($line['mess'])."]]></description>
                         <author><![CDATA[example@example.com (porese)]]></author>
                         <pubDate>".$line['pubdate']."</pubDate>
-                        <guid>".htmlentities(strip_tags($line['link']),ENT_COMPAT,cp1251)."</guid>
+                        <guid>".htmlentities(strip_tags($line['link']),ENT_COMPAT,"cp1251")."</guid>
                     </item>";
 
 }
