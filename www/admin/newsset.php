@@ -8,8 +8,8 @@ $sitetitle='Настройка новостей';
 $contentcenter= '<h3>Настройка новостей</h3>';
 $checked_newsmoderator='';
 $checked_news_cat='';
-if($newsmoderator=="1")$checked_newsmoderator='checked="checked"';
-if($news_cat=="1")$checked_news_cat='checked="checked"';
+$checked_newsmoderator=($newsmoderator=="1")?'checked="checked"':'';
+$checked_news_cat=($news_cat=="1")?'checked="checked"':'';
 $contentcenter .=<<<EOT
 <form action="$url" method="post" name="settings_form">
 <label>Имя автора новостей*<br />
@@ -61,9 +61,8 @@ $lengthnews=(int)$_REQUEST['lengthnews'];
 $warnalertcolor=trim($_REQUEST['warnalertcolor']);
 $commentsperpage=trim($_REQUEST['commentsperpage']);
 $newsflood=(int)$_REQUEST['newsflood'];
-$newsmoderator=(int)$_REQUEST['newsmoderator'];
-$news_cat=trim($_REQUEST['news_cat']);
-$gzip_enable = trim($_POST['gzip_enable']);
+$newsmoderator=isset($_REQUEST['newsmoderator'])?1:0;
+$news_cat=isset($_REQUEST['news_cat'])?1:0;
 	if ($adminname=="" || $admmail==""|| $newsperpage==""|| $newsonmainpage==""|| $lengthhead==""|| $lengthnews=="" || $commentsperpage=="" || $newsflood=="") {
 	$contentcenter="<font size=\"2\"><b>Вы не заполнили одно из обязательных полей!<br>Поля, отмеченные звездочкой (*), должны быть заполнены!</b></font><br /><br /><a href='javascript:history.back(1)'><B>Вернуться назад</B></a>";
 	} else {

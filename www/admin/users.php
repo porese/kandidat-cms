@@ -4,6 +4,7 @@ include $path.'/admin/adminses.php';
 if(3>getpermision())header('LOCATION:index.php');
 $sitetitle='Настройки пользователей';
 $adminsset=CONF.'users.php';
+$contentcenter ='';
 
 $_POST=stripinarr($_POST);
 $error='';
@@ -62,9 +63,10 @@ if(isset($_GET['add'])||isset($_GET['edit'])||isset($_GET['view'])){
 		$url='?edit='.$login;
 		$item='';
 	    $disable_login='readonly="readonly" ';
+	    $disable_all='';
 		$file = file($adminsset);
 		$count = count($file);
-		for($i=0;$a<$count;$i++){
+		for($i=0;$i<$count;$i++){
 			$q = explode('::', $file[$i]);
 			if($q[0]==$login){
 				$item = $q;
@@ -72,7 +74,7 @@ if(isset($_GET['add'])||isset($_GET['edit'])||isset($_GET['view'])){
 			}
 		}
 		if(!is_array($item))header('LOCATION:users.php');
-		list($login,,$mode_content,$email,$name,$siti,$site,$icq,$jabberm)=$item;
+		list($login,,$mode_content,$email,$name,$siti,$site,$icq,$jabber)=$item;
 		$contentcenter.='<h3>Редактирование пользователя</h3></h3>
 			<form action="'.$url.'" method="post" name="my_form">';
 	}else{
@@ -83,7 +85,7 @@ if(isset($_GET['add'])||isset($_GET['edit'])||isset($_GET['view'])){
 	    $disable_all='disabled="disabled" ';
 		$file = file($adminsset);
 		$count = count($file);
-		for($i=0;$a<$count;$i++){
+		for($i=0;$i<$count;$i++){
 			$q = explode('::', $file[$i]);
 			if($q[0]==$login){
 				$item = $q;
@@ -91,7 +93,7 @@ if(isset($_GET['add'])||isset($_GET['edit'])||isset($_GET['view'])){
 			}
 		}
 		if(!is_array($item))header('LOCATION:users.php');
-		list($login,,$mode_content,$email,$name,$siti,$site,$icq,$jabberm)=$item;
+		list($login,,$mode_content,$email,$name,$siti,$site,$icq,$jabber)=$item;
 		$contentcenter.='<h3>Просмотр пользователя</h3></h3>';
 
 	}

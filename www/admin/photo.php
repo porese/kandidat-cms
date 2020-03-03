@@ -14,6 +14,7 @@ $url=$_SERVER['PHP_SELF'];
 $sitetitle='Фото-альбом';
 $cat  = (isset ($_GET['cat']))? $_GET['cat'] : "";
 if($cat =='') { $razdel=''; $link=$prefflp.'/'.$gallerypath.'/'; $piccat=PICTURES;} else { $razdel='cat='.$cat.'&'; $link=$prefflp.'/'.$gallerypath.'/'.$cat.'/'; $piccat=PICTURES.$cat.'/';}
+$contentcenter = '';
 
 function pages($string){
 	global $f,$u,$page,$pages,$cat, $razdel;

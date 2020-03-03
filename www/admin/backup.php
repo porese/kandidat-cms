@@ -4,6 +4,8 @@ include $path.'/admin/adminses.php';
 if(3>getpermision())header('LOCATION:index.php');
 $perm_file=0644;
 $perm_dir=0755;
+$contentcenter='';
+$sitetitle='Архивирование пользовательских данных';
 
 if(isset($_POST['backup'])){
 	if(!file_exists($localpath.'media/upgrade'))mkdir($localpath.'media/upgrade');
@@ -50,7 +52,6 @@ if(file_exists($directory)){
 $drop.='</select>';
 
 $bfile='bkan-'.date('d-m-Y_H-i').'.tgz';
-$sitetitle='Архивирование пользовательских данных';
 $contentcenter='<h3>'.$sitetitle.'</h3>';
 $contentcenter.='<form action="'.$_SERVER['SCRIPT_NAME'].'" method="post">
 <p>Архивируются данные из каталогов /articles, /engine, /conf, /media/image.</p>

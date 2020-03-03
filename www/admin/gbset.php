@@ -7,9 +7,9 @@ $url=$_SERVER['PHP_SELF'];
 $sitetitle='Настройка гостевой книги';
 @$contentcenter.= '<h3>'.$sitetitle.'</h3>';
 
-if($sendmail)$checked_sendmail='checked="checked"';
-if($catmessage)$checked_catmessage='checked="checked"';
-if($gbmoderator)$checked_gbmoderator='checked="checked"';
+$checked_sendmail=($sendmail)?'checked="checked"':'';
+$checked_catmessage=($catmessage)?'checked="checked"':'';
+$checked_gbmoderator=($gbmoderator)?'checked="checked"':'';
 $contentcenter .=<<<EOT
 <form action="$url" method="post" name="settings_form">
 <label title="Количество сообщений на странице (оптимально 5) ">Количество сообщений на странице *<br />
@@ -37,12 +37,12 @@ EOT;
 
 if (isset($_REQUEST['settings'])) {
 $pnumber=(int)$_REQUEST['pnumber'];
-$sendmail=(int)$_REQUEST['sendmail'];
+$sendmail=isset($_REQUEST['sendmail'])?1:0;
 $valmail=$_REQUEST['valmail'];
 $catmessage=(int)$_REQUEST['catmessage'];
 $nummessage=(int)$_REQUEST['nummessage'];
 $gbflood=(int)$_REQUEST['gbflood'];
-$gbmoderator=(int)$_REQUEST['gbmoderator'];
+$gbmoderator=isset($_REQUEST['gbmoderator'])?1:0;
 
 	if (($pnumber=="")||(!preg_match('/^[-0-9a-zа-я_]+@[-0-9a-zа-я_^\.]+\.[a-zа-я]{2,4}$/iu', $valmail))) {
 	$contentcenter='<font size="2"><b>Вы не заполнили одно из обязательных полей!<br />Поля, отмеченные звездочкой (*), должны быть заполнены!</b></font><br><br><a href=\'javascript:history.back(1)\'><B>Вернуться назад</B></a>';

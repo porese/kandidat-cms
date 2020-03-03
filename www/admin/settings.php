@@ -8,7 +8,7 @@ $title=$sitename;
 
 @$contentcenter .='<h3>Настройки сайта</h3>';
 
-if ($_REQUEST['action']=="validate") {
+if (isset($_REQUEST['action'])&&($_REQUEST['action']=="validate")) {
 	$title = trim($_POST["title"]);
 	$template = trim($_POST["template"]);
 
@@ -29,13 +29,13 @@ if ($_REQUEST['action']=="validate") {
 	$sonlytitle = trim($_POST["sonlytitle"]);
 	$disableURL = (int)$_POST["disableURL"];
 }
-if ($siteoff=="1") $is_checked='checked="checked"';
-if ($cc_url=="1") $is_checked_cc_url='checked="checked"';
-if ($gzip_enable=="1") $is_checked_gzip_enable='checked="checked"';
-if ($g_captcha=="1") $is_checked_g_captcha=array('checked="checked"','');else$is_checked_g_captcha=array('','checked="checked"');
-if ($moder_comments=="1") $is_checked_moder_comments='checked="checked"';
-if ($sonlytitle=="1") $is_sonlytitle='checked="checked"';
-if ($disableURL==1) $is_checked_disableURL='checked="checked"';
+$is_checked=($siteoff=="1")?'checked="checked"':'';
+$is_checked_cc_url=($cc_url=="1")?'checked="checked"':'';
+$is_checked_gzip_enable=($gzip_enable=="1")?'checked="checked"':'';
+$is_checked_g_captcha=($g_captcha=="1")?array('checked="checked"',''):array('','checked="checked"');
+$is_checked_moder_comments=($moder_comments=="1")?'checked="checked"':'';
+$is_sonlytitle=($sonlytitle=="1")?'checked="checked"':'';
+$is_checked_disableURL=($disableURL==1)?'checked="checked"':'';
 
 $arrtmpl=array();
 $d = dir('../templates');
@@ -124,7 +124,7 @@ EOT;
 
 $contentcenter = stripslashes($contentcenter);
 
-if ($_REQUEST['action']=='validate') {
+if (isset($_REQUEST['action'])&&($_REQUEST['action']=='validate')) {
 	$errormessage='';
 
 	if (empty($title)) {
@@ -150,6 +150,7 @@ if ($_REQUEST['action']=='validate') {
 		$somecontent .= "\$saftertitle=$saftertitle;\n";
 		$somecontent .= "\$sonlytitle=\"$sonlytitle\";\n";
 		$somecontent .= "\$disableURL=$disableURL;\n";
+		$somecontent .= "\$linkfeed_user=\"$linkfeed_user\";\n";
 		$somecontent .="?>";
 
 		@unlink($myFile);

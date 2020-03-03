@@ -17,9 +17,9 @@ if(isset($_REQUEST['action'])){
 	$pubdate=trim($_REQUEST['pubdate']);
 	$comments=(int)$_REQUEST['comments'];
 	$idmess=time();
-	$description = $new['description'];
-	$keywords = $new['keywords'];
-	$tags = $new['tags'];
+	$description = isset($new['description'])?$new['description']:'';
+	$keywords = isset($new['keywords'])?$new['keywords']:'';
+	$tags = isset($new['tags'])?$new['tags']:'';
 	if(trim($_REQUEST['header'])==''||$new==''){
 		$contentcenter='<font size="2" color="'.$warnalertcolor.'"><b>Вы не заполнили одно из обязательных полей!<br>Поля, отмеченные звездочкой (*), должны быть заполнены!</b></font>';
 	}else{

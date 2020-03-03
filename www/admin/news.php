@@ -8,10 +8,12 @@ $newsid = (isset($_GET['newsid'])) ? (int)$_GET['newsid'] : 0;
 $del = (isset($_GET['del'])) ? (int)$_GET['del'] : 0;
 $moder = (isset($_GET['moder'])) ? (int)$_GET['moder'] : -1;
 $commentsid = (isset($_GET['commentsid'])) ? (int)$_GET['commentsid'] : 0;
-$ok = (int)$_GET[ok];
+$ok = isset($_GET['ok'])?(int)$_GET['ok']:''; 
+
 $myFile=ENGINE.'newsdb.php';
 $commentFile=ENGINE.'commentsdb.php';
 $newsperpage=30;
+$contentcenter='';
 
 if(file_exists($myFile)){
 	//Запись
@@ -60,6 +62,7 @@ if(file_exists($myFile)){
 	if ($what>0) {
 		if(2>getpermision())header('LOCATION:news.php');
 		$idmess=unserialize($news[$what-1]);
+		$countallnews = count($news);
 		if($ok>0){
 			dellallcomments($idmess['id'], $commentFile);
 			array_splice($news,$what-1,1);
@@ -156,6 +159,7 @@ EOT;
 	    <td colspan="2" width="10%">Комментарии</td>
 	    </tr></thead><tbody>';
 
+		$dumbcount=0;
 		for($j;(($i<$j)&&($j>=0));$j--)  {
 			$dumbcount++;
 			$class = 'cline' . ($dumbcount % 2);
@@ -174,10 +178,10 @@ EOT;
 			$p = $j+1;
 			$contentcenter.='<tr class="'.$class.'">
 			    <td class="line3" width="60">'.$date.'</td>
-			    <td  class="line3" width="60%">'.$head.'</td>
+			    <td class="line3" width="60%">'.$head.'</td>
 			    <td class="line3" colspan="1" width="10%"><a title="Редактировать" href="../admin/news.php?edit='.$p.'"><img src="images/edit.png"></a></td>
 			    <td class="line3" colspan="1" width="10%"><a title="Удалить" href="../admin/news.php?what='.$p.'"><img src="images/delete.png"></a></td>
-			    <td  class="line3" colspan="1" width="6%">'.getcountcomments($idmess,$commentFile).'</td>
+			    <td class="line3" colspan="1" width="6%">'.getcountcomments($idmess,$commentFile).'</td>
 			    <td class="line3" colspan="1" width="4%"><a title="Комментарии" href="../admin/news.php?newsid='.$idmess.'"><img src="images/info.png"></a></td>
 			</tr>';
 		}
@@ -188,11 +192,11 @@ $contentcenter .='</table>';
 $contentcenter .='<br /><br /> Страницы:';
 $all = ceil($countallnews/$newsperpage);
 for($i=1;$i<=$all;$i++) {
-	if($_REQUEST['newspage']==$i) {
+	if(isset($_REQUEST['newspage'])&&($_REQUEST['newspage']==$i)) {
 	$contentcenter.='&laquo;<b>'.$i.'</b>&raquo;&nbsp;';
 	}
 	else {
-		if($whatpage=='news') $contentcenter.='<a href="news.php?newspage='.$i.'">'.$i.'</a>&nbsp;';
+		if(isset($whatpage)&&($whatpage=='news')) $contentcenter.='<a href="news.php?newspage='.$i.'">'.$i.'</a>&nbsp;';
 		else $contentcenter.= '<a href="news.php?newspage='.$i.'">'.$i.'</a>&nbsp;';
 	}
 }

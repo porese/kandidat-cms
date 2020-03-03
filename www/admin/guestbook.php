@@ -31,6 +31,8 @@ if(isset($_REQUEST['mess'])){
 @$contentcenter .='<h3>Список записей гостевой книги</h3>';
 if(file_exists($myFile)){
 	$gbs=file($myFile);
+    $count = count($gbs);
+	$count1 = $count;
 	//Удаление
 	if($del>0){
 	    @chmod($myFile, 0777);
@@ -67,9 +69,7 @@ if(file_exists($myFile)){
         $contentcenter.="</HEAD></HTML>\n";
 	//Редактирование
 	}elseif($edit>0){
-	    $count = count($gbs);
 	    $contentcenter.="<div class=\"message_warn\">При нажатии на ссылку (кнопку) для удаления,  запись будет сразу же удалена без подтверждения!</div><br />Всего записей: $count<br>\n";
-		$count1 = $count;
 		if ($start <= 0) {$start = 0; $count=min($count,$pnumber);}
 		for ($i = $start; $i < min($count,$start+$pnumber); $i++){
 			$data=unserialize($gbs[$i]);
@@ -84,12 +84,11 @@ if(file_exists($myFile)){
 	    	$url = $data['url'];
 			$url = !empty($url)?"www: <a href='$url'>$url</a>":"";
 			$msg = $data['mess'];
-	    	$answer = $data['answer'];
-			$moderator = (int)$data['moderator'];
-			$ip = $data['ip'];
+			$moderator = $data['moderator'];
+			$ip = isset($data['ip'])?$data['ip']:'';
 			$p=$i+$start;$p++;
+			$answer = isset($data['answer'])?"<p class='color: #4795F3; font-size: 80%; text-align: justify; margin-top: 10px'><b>Аdmin:</b>&nbsp;".$data['answer']."</p>":"";
 			if($p!==$edit){
-			$answer = !empty($answer)?"<p class='color: #4795F3; font-size: 80%; text-align: justify; margin-top: 10px'><b>Аdmin:</b>&nbsp;$answer</p>":"";
 	    	$contentcenter .=<<<EOT
 			<table border="0" width="95%" cellpadding="0" cellspacing="0" align="center" style="border-bottom:1px">
 			    <tr bgcolor="#F4F4F4">
@@ -191,10 +190,9 @@ EOT;
 	    	$url = $data['url'];
 			$url = !empty($url)?"www: <a href='$url'>$url</a>":"";
 			$msg = $data['mess'];
-	    	$answer = $data['answer'];
-			$answer = !empty($answer)?"<p class='color: #4795F3; font-size: 80%; text-align: justify; margin-top: 10px'><b>Аdmin:</b>&nbsp;$answer</p>":"";
-	    	$moderator = (int)$data['moderator'];
-	    	$ip = $data['ip'];
+			$answer = isset($data['answer'])?"<p class='color: #4795F3; font-size: 80%; text-align: justify; margin-top: 10px'><b>Аdmin:</b>&nbsp;".$data['answer']."</p>":"";
+	    	$moderator = $data['moderator'];
+	    	$ip = isset($data['ip'])?$data['ip']:'';
 			$p=$i+$start;$p++;
 	    	$contentcenter .=<<<EOT
 			<table border="0" width="95%" cellpadding="0" cellspacing="0" align="center"  style="border-bottom:1px">

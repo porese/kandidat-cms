@@ -21,8 +21,8 @@ $d->close();
 $photorotpathdrop=make_droplist($arrpath,'photorotpath',$photorotpath);
 
 
-if($info_pic=='1')$checked_info_pic='checked="checked"';
-if($multiupload=='1')$checked_multiupload='checked="checked"';
+$checked_info_pic=($info_pic=='1')?'checked="checked"':'';
+$checked_multiupload=($multiupload=='1')?'checked="checked"':'';
 $contentcenter .=<<<EOT
 <form action="$url" method="post" name="settings_form">
 <label title="Путь к галлереи, относительно корня сайта :: pictures">Путь к галлереи, относительно корня сайта: <input type="text" name="gallerypath" value="$gallerypath" /></label>
@@ -62,7 +62,7 @@ EOT;
 if (isset($_REQUEST['settings'])) {
 	$xtable=(int)$_REQUEST['xtable'];
 	$ytable=(int)$_REQUEST['ytable'];
-	$info_pic=(int)$_REQUEST['infopic'];
+	$info_pic=isset($_REQUEST['infopic'])?1:0;
 	$templatepp = trim($_REQUEST['template']);
 	$multiupload = (int)$_REQUEST['multiupload'];
 	$gallerypath = trim($_REQUEST['gallerypath']);
