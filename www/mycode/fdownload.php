@@ -45,7 +45,7 @@ while ($file = readdir($dir_handle))
 sort($files_array,SORT_STRING);
 
 ?>
-<link rel="stylesheet" href="<?echo $prefflp;?>/css/sorttable.css" />
+<link rel="stylesheet" href="<?php echo $prefflp;?>/css/sorttable.css" />
 <script type="text/javascript">
 $(document).ready(function(){
 	/* Код выполняется после загрузки страницы */
@@ -65,9 +65,9 @@ $(document).ready(function(){
 		<thead>
 			<tr>
 				<th class="head" width="7%"><h3>ID</h3></th>
-				<th class="head" width="40%" title="<?=__('Сортировать по имени');?>"><h3><?=__('Имя файла');?></h3></th>
-				<th class="head" width="43%" title="<?=__('Сортировать по комментарию');?>"><h3><?=__('Комментарий, размер');?></h3></th>
-				<th class="head" width="10%" title="<?=__('Сортировать по количеству скачиваний');?>"><h3><?=__('Скачали');?></h3></th>
+				<th class="head" width="40%" title="<?php echo __('Сортировать по имени');?>"><h3><?php echo __('Имя файла');?></h3></th>
+				<th class="head" width="43%" title="<?php echo __('Сортировать по комментарию');?>"><h3><?php echo __('Комментарий, размер');?></h3></th>
+				<th class="head" width="10%" title="<?php echo __('Сортировать по количеству скачиваний');?>"><h3><?php echo __('Скачали');?></h3></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -99,14 +99,14 @@ $(document).ready(function(){
 			<span><?=__('Строк на странице');?></span>
 		</div>
 		<div id="tnavigation">
-			<img src="<?echo $prefflp;?>/images/first.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1,true)" />
-			<img src="<?echo $prefflp;?>/images/previous.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1)" />
-			<img src="<?echo $prefflp;?>/images/next.gif" width="16" height="16" alt="First Page" onclick="sorter.move(1)" />
-			<img src="<?echo $prefflp;?>/images/last.gif" width="16" height="16" alt="Last Page" onclick="sorter.move(1,true)" />
+			<img src="<?php echo $prefflp;?>/images/first.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1,true)" />
+			<img src="<?php echo $prefflp;?>/images/previous.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1)" />
+			<img src="<?php echo $prefflp;?>/images/next.gif" width="16" height="16" alt="First Page" onclick="sorter.move(1)" />
+			<img src="<?php echo $prefflp;?>/images/last.gif" width="16" height="16" alt="Last Page" onclick="sorter.move(1,true)" />
 		</div>
-		<div id="ttext"><?=__('Страница');?> <span id="currentpage"></span> из <span id="pagelimit"></span></div>
+		<div id="ttext"><?php echo __('Страница');?> <span id="currentpage"></span> из <span id="pagelimit"></span></div>
 	</div>
-<script type="text/javascript" src="<?echo $preflp;?>/js/sorttable.js"></script>
+<script type="text/javascript" src="<?php echo $preflp;?>/js/sorttable.js"></script>
 <script type="text/javascript">
   var sorter = new TINY.table.sorter("sorter");
 	sorter.head = "head";
