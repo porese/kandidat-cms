@@ -158,7 +158,7 @@ Copyright &copy; 2007-2010<br />
 <tr>
 <td class='tbl1'>
 <p>Kan-Studio - Разработчик Kandidat CMS</p>
-<p>It - Модификатор Kandidat CMS</p>
+<p><a href=\"https://github.com/porese/kandidat-cms\"  target=\"_blank\">It - Модификатор Kandidat CMS</a></p>
 <p>Thorn - Модификатор Kandidat CMS</p>
 <p>Dysha - Координатор проекта</p>
 <p>Благодарность за данную сборку с удовольствием приму на ЯД 41001742191850</p>

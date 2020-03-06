@@ -200,7 +200,7 @@
 					<div id="footer">
 						<p>
 							<div style="float:left">
-								&copy; Powered by : <a href="http://www.Kan-Studio.ru">Kandidat CMS <?php echo VERSION;?></a>
+								&copy; Powered by : <a href="https://github.com/porese/kandidat-cms"  target="_blank">Kandidat CMS <?php echo VERSION;?></a>
 							</div>
 						   	<div style="float:right">
 								<?php echo $choisetemplate;?>

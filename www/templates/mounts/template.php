@@ -77,7 +77,7 @@
 
 <div id="wrapper-footer">
 	<div id="footer">
-		©2010 <?php echo $sitename;?>. Powered by: <a href="http://www.kan-studio.ru">Kandidat <abbr>CMS</abbr> by it</a> <?php echo printbuildtime(3);?> | Webmaster <a href="http://forum.kan-studio.ru/profile.php?id=117" target="_blank">it aka porese</a> | <a href="http://studio7designs.com/">Web Design Victoira BC by Studio7designs.com</a>
+		©2010 <?php echo $sitename;?>. Powered by: <a href="http://www.kan-studio.ru">Kandidat <abbr>CMS</abbr> by it</a> <?php echo printbuildtime(3);?> | Webmaster <a href="https://github.com/porese/kandidat-cms" target="_blank">it aka porese</a> | <a href="http://studio7designs.com/">Web Design Victoira BC by Studio7designs.com</a>
 		<p id="links">
 			<a href="<?php echo cc_link("/rss.html"); ?>" class="rss" title="Subscribe to entries web feed"  target="_blank">Entries (<abbr>RSS</abbr>)</a>
 			   
