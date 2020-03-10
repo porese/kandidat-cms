@@ -15,4 +15,5 @@ $lengthnews=100;
 $warnalertcolor="red";
 $newsflood="60";
 $newsmoderator="0";
+$news_cat="0";
 ?>

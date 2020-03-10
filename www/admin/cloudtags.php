@@ -15,7 +15,7 @@ if (isset($_REQUEST['settings'])) {
 
 	$sdata='%'.$pxsize.'%'.$x.'%'.$y.'%'.$color.'%'.$outlinecolor.'%';
 
-	if((int)$_REQUEST['maketags']==1){
+	if(isset($_REQUEST['maketags'])&&(int)$_REQUEST['maketags']==1){
 		$cloud[0]=$sdata;
 
 		$cat_st=get_articlessubdir();
@@ -108,7 +108,7 @@ if(file_exists(ENGINE.'cloudtagsdb.php')){
 		$sdata=explode('%',$cloud[0]);
 		for($i=1;$i<$sizeofcloud;$i++){
 			$data=explode('%%',$cloud[$i]);
-			$arrclouds[$data[0]]=$arrclouds[$data[0]]+1;
+			@$arrclouds[$data[0]]=$arrclouds[$data[0]]+1;
 		}
 		$tags = '<ul>';
 		if(is_array($arrclouds))foreach($arrclouds as $key=>$val)$tags .= '<li><a href="'.cc_link('/cloudtags-'.translit($key).'.html').'" style="font-size: '.($sdata[1]+$val-1).'pt">'.$key.'</a></li>';
