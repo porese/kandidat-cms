@@ -6,7 +6,7 @@ include $path.'/code/functions.php';
 $directory=LOCALPATH.'/media/file';//Это путь где хранятся файлы
 
 if(empty($_GET['file'])) die('Missing parameter!');
-if($_GET['file']{0}=='.') die('Wrong file!');
+if($_GET['file']{0}=='.'||$_GET['file']{0}=='/') die('Wrong file!');
 
 $fname =$_GET['file'];
 $fname = preg_replace('/..\//i','',$fname);
@@ -33,6 +33,11 @@ if(file_exists($fullPath)){
 	exit;
 }else die("This file does not exist!");
 
+function getexts(){
+    //list acceptable file extensions here
+    return '(app|avi|doc|docx|exe|ico|mid|midi|mov|mp3|
+      mpg|mpeg|pdf|psd|qt|ra|ram|rm|rtf|txt|wav|word|xls)';
+}
 
 function is_bot(){
 	/* This function will check whether the visitor is a search engine robot */
